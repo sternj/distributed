@@ -7,7 +7,7 @@ on: [push, pull_request]
 concurrency:
   group: ${{ github.ref }}
   cancel-in-progress: true
-# This is an unimportant comment
+
 jobs:
   test:
     runs-on: ${{ matrix.os }}
