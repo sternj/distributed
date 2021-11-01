@@ -78,6 +78,7 @@ class ThreadPoolExecutor(thread.ThreadPoolExecutor):
         )
 
     def _adjust_thread_count(self):
+        self._threads = [ t for t in self._threads if t.is_alive() ]
         if len(self._threads) < self._max_workers:
             t = threading.Thread(
                 target=_worker,
